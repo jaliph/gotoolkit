@@ -68,7 +68,7 @@ func (t *Tools) UploadFiles(r *http.Request, uploadDir string, rename ...bool) (
 
 	err := r.ParseMultipartForm(int64(t.MaxAllowedSize))
 	if err != nil {
-		return nil, errors.New("The uploaded file is too big")
+		return nil, errors.New("the uploaded file is too big")
 	}
 
 	for _, fHeaders := range r.MultipartForm.File {
@@ -107,7 +107,7 @@ func (t *Tools) UploadFiles(r *http.Request, uploadDir string, rename ...bool) (
 				}
 
 				if !allowed {
-					return nil, errors.New("File type is not allowed!!")
+					return nil, errors.New("file type is not allowed")
 				}
 
 				_, err = inFile.Seek(0, 0)
